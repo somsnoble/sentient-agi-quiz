@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentient AGI Quest - Test Your Open-Source AGI Knowledge</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 25px;
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .question h3 {
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
+        .option {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background: rgba(0, 255, 136, 0.2);
+        }
+        .option.selected {
+            background: rgba(0, 255, 136, 0.3);
+            border: 2px solid #00ff88;
+        }
+        button {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #00cc6a;
+        }
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        #results {
+            text-align: center;
+            display: none;
+        }
+        #score {
+            font-size: 2em;
+            color: #00ff88;
+            margin: 20px 0;
+        }
+        .share-btn {
+            background: #1da1f2;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .share-btn:hover {
+            background: #0d8bd9;
+        }
+        .explanation {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentient AGI Quest</h1>
+        <p class="subtitle">Challenge your knowledge of @SentientAGI's mission for open-source AGI. Built to empower the community!</p>
+        
+        <div id="quiz">
+            <div class="question active" id="q0">
+                <h3>1. What is @SentientAGI's core mission?</h3>
+                <div class="option" data-correct="true">To ensure AGI is open-source and not controlled by any single entity.</div>
+                <div class="option">To build closed-source AI for corporations.</div>
+                <div class="option">To create the fastest AI hardware.</div>
+                <div class="option">To focus only on chatbots.</div>
+            </div>
+            
+            <div class="question" id="q1">
+                <h3>2. What does OML stand for in Sentient's technology?</h3>
+                <div class="option">Open, Monetizable, Loyal</div>
+                <div class="option" data-correct="true">Open, Monetizable, Loyal</div>
+                <div class="option">Optimized Machine Learning</div>
+                <div class="option">Open Model Library</div>
+                <div class="option">Organic Multi-Layer</div>
+            </div>
+            
+            <div class="question" id="q2">
+                <h3>3. What is "The GRID"?</h3>
+                <div class="option">A gaming platform.</div>
+                <div class="option">The world’s largest network of intelligence for open AGI.</div>
+                <div class="option" data-correct="true">The world’s largest network of intelligence for open AGI.</div>
+                <div class="option">A data storage system.</div>
+                <div class="option">A hardware component.</div>
+            </div>
+            
+            <div class="question" id="q3">
+                <h3>4. How much funding has Sentient raised?</h3>
+                <div class="option">$50M</div>
+                <div class="option">$85M</div>
+                <div class="option" data-correct="true">$85M</div>
+                <div class="option">$100M</div>
+                <div class="option">$200M</div>
+            </div>
+            
+            <div class="question" id="q4">
+                <h3>5. What is the Chancery benchmark?</h3>
+                <div class="option">A speed test for AI.</div>
+                <div class="option" data-correct="true">A benchmark for AI governance developed with EigenLayer.</div>
+                <div class="option">A model training tool.</div>
+                <div class="option">A community voting system.</div>
+                <div class="option">An image generation AI.</div>
+            </div>
+            
+            <div class="question" id="q5">
+                <h3>6. What powers contributions in Sentient's ecosystem?</h3>
+                <div class="option">Fiat donations.</div>
+                <div class="option">$SENT tokens based on real usage.</div>
+                <div class="option" data-correct="true">$SENT tokens based on real usage.</div>
+                <div class="option">NFT sales only.</div>
+                <div class="option">Centralized payments.</div>
+            </div>
+            
+            <div class="question" id="q6">
+                <h3>7. What is "Dobby" in Sentient's context?</h3>
+                <div class="option">A game character.</div>
+                <div class="option" data-correct="true">A loyal AI model with community ownership via fingerprinting.</div>
+                <div class="option">A data source.</div>
+                <div class="option">A partner company.</div>
+                <div class="option">An agent tool.</div>
+            </div>
+            
+            <div class="question" id="q7">
+                <h3>8. Why is verifiability important for Sentient's AGI?</h3>
+                <div class="option">To hide model details.</div>
+                <div class="option">For verifiable AI training, updates, and governance in commons like governments.</div>
+                <div class="option" data-correct="true">For verifiable AI training, updates, and governance in commons like governments.</div>
+                <div class="option">Only for speed optimization.</div>
+                <div class="option">To centralize control.</div>
+            </div>
+            
+            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+            <div id="feedback"></div>
+        </div>
+        
+        <div id="results">
+            <h2>Your Score: <span id="score"></span>/8</h2>
+            <p id="message"></p>
+            <a href="#" class="share-btn" id="shareLink" onclick="shareScore()">Share on X</a>
+            <button onclick="restartQuiz()">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+        const totalQuestions = 8;
+        const questions = document.querySelectorAll('.question');
+        const options = document.querySelectorAll('.option');
+        const nextBtn = document.getElementById('nextBtn');
+        const feedback = document.getElementById('feedback');
+        const quiz = document.getElementById('quiz');
+        const results = document.getElementById('results');
+
+        // Event listeners for options
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const q = document.getElementById(`q${currentQuestion}`);
+                const siblings = q.querySelectorAll('.option');
+                siblings.forEach(sib => sib.classList.remove('selected'));
+                option.classList.add('selected');
+                nextBtn.disabled = false;
+            });
+        });
+
+        function nextQuestion() {
+            const selectedOption = questions[currentQuestion].querySelector('.selected');
+            if (!selectedOption) return;
+
+            const isCorrect = selectedOption.hasAttribute('data-correct');
+            if (isCorrect) score++;
+
+            feedback.innerHTML = isCorrect ? 
+                '<div class="explanation">Correct! Keep building open AGI 🚀</div>' : 
+                `<div class="explanation">Not quite. ${selectedOption.parentElement.querySelector('[data-correct]').textContent} Dive deeper into @SentientAGI!</div>`;
+
+            questions[currentQuestion].classList.remove('active');
+
+            if (currentQuestion < totalQuestions - 1) {
+                currentQuestion++;
+                questions[currentQuestion].classList.add('active');
+                nextBtn.disabled = true;
+                setTimeout(() => { feedback.innerHTML = ''; }, 2000);
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            quiz.style.display = 'none';
+            results.style.display = 'block';
+            document.getElementById('score').textContent = score;
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let message = '';
+            if (percentage === 100) message = 'AGI Master! You\'re ready to contribute to the GRID. Join the community!';
+            else if (percentage >= 75) message = 'Strong grasp! Open-source AGI needs builders like you.';
+            else if (percentage >= 50) message = 'Good start! Explore more about @SentientAGI.';
+            else message = 'Keep learning! Check out sentient.xyz for open AGI insights.';
+            document.getElementById('message').textContent = message;
+            document.getElementById('shareLink').href = `https://twitter.com/intent/tweet?text=I scored ${score}/8 on Sentient AGI Quest! What's your score? %23OpenAGI %40SentientAGI&url=${window.location.href}`;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            questions.forEach(q => q.classList.remove('active'));
+            questions[0].classList.add('active');
+            options.forEach(opt => opt.classList.remove('selected'));
+            nextBtn.disabled = true;
+            feedback.innerHTML = '';
+            quiz.style.display = 'block';
+            results.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
